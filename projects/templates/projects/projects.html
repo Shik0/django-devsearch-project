@@ -1,11 +1,23 @@
 {% extends 'main.html' %} {% block content%}
 <h1>Project Templates</h1>
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-unknown printer took a galley of type and scrambled it to make a type specimen
-book. It has survived not only five centuries, but also the leap into electronic
-typesetting, remaining essentially unchanged. It was popularised in the 1960s
-with the release of Letraset sheets containing Lorem Ipsum passages, and more
-recently with desktop publishing software like Aldus PageMaker including
-versions of Lorem Ipsum. {% endblock content %}
+<h3>You are on the {{ page }} page.</h3>
+
+{% if number > 10 %}
+<p>Number is greater that 10</p>
+{% elif number == 10 %}
+<p>Number is exactly 10</p>
+{% else %}
+<p>Number is less that 10</p>
+{% endif %}
+
+<ul>
+  {% for project in projects %}
+  <li>
+    Title: <a href="{% url 'project' project.id %}">{{ project.title}}</a> ---
+    {{ project.description }}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
