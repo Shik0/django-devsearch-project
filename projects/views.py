@@ -6,8 +6,6 @@ from .models import Project
 from .forms import ProjectForm
 
 
-
-
 def projects(request):
     projectList = Project.objects.all()
     context = {"projects": projectList}
